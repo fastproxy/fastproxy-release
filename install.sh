@@ -47,11 +47,10 @@ FILE="fastproxy-darwin-${ARCH}"
 # Fetch the download URL for the latest release from GitHub
 DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/ \
 | grep "browser_download_url.*${FILE}" \
-| cut -d '"' -f 4)
+| cut -d '"' -f 4
 
 # Check if the download URL is found
 if [ -z "${DOWNLOAD_URL}" ]; then
-  echo "https://api.github.com/repos/${REPO}/releases/"
   echo "Download URL not found for the releases."
   exit 1
 fi
