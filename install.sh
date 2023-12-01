@@ -32,8 +32,6 @@ echo "Updating shell configuration file: $SHELL_CONFIG_FILE"
 echo "export FASTPROXY_HOME=\"\$HOME/.fastproxy\"" >> "$SHELL_CONFIG_FILE"
 echo "export PATH=\"\$PATH:\$FASTPROXY_HOME/bin\"" >> "$SHELL_CONFIG_FILE"
 
-source "$SHELL_CONFIG_FILE"
-
 # Determine system architecture
 ARCH=""
 case $(uname -m) in
@@ -62,6 +60,7 @@ curl -L "${DOWNLOAD_URL}" -o "${FASTPROXY_HOME}/${FILE}.tar.gz"
 
 # Extract the tar package
 tar -xzf "${FASTPROXY_HOME}/${FILE}.tar.gz" -C "${FASTPROXY_HOME}/bin"
+mv "${FASTPROXY_HOME}/bin/${FILE}" "${FASTPROXY_HOME}/bin/fp"
 
 
 # Remove the tar package and extracted file
@@ -69,5 +68,4 @@ rm -f "${FASTPROXY_HOME}/${FILE}.tar.gz"
 rm -f "${FASTPROXY_HOME}/bin/${FILE}"
 
 echo "fastproxy has been installed to ${FASTPROXY_HOME}/bin
-
 
