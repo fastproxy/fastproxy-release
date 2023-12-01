@@ -18,16 +18,13 @@ mkdir -p "${FASTPROXY_HOME}/bin"
 # Determine which shell configuration file to update
 SHELL_CONFIG_FILE=""
 
-if [ -n "$ZSH_VERSION" ]; then
+if which zsh >/dev/null; then
     # This is zsh shell
     SHELL_CONFIG_FILE="$HOME/.zshrc"
-elif [ -n "$BASH_VERSION" ]; then
+else
     # This is bash shell
     SHELL_CONFIG_FILE="$HOME/.bash_profile"
     [ ! -f "$SHELL_CONFIG_FILE" ] && SHELL_CONFIG_FILE="$HOME/.bashrc"
-else
-    echo "Unsupported shell. Only bash and zsh are supported."
-    exit 1
 fi
 
 # Update shell configuration file
