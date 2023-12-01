@@ -6,15 +6,6 @@ if [ "$(uname)" != "Darwin" ]; then
   exit 1
 fi
 
-# Check if FASTPROXY_HOME variable exists, if not, set it to $HOME/.fastproxy
-if [ -z "${FASTPROXY_HOME}" ]; then
-  export FASTPROXY_HOME="$HOME/.fastproxy"
-  echo "Setting FASTPROXY_HOME to $FASTPROXY_HOME"
-fi
-
-# Create necessary directory
-mkdir -p "${FASTPROXY_HOME}/bin"
-
 # Determine which shell configuration file to update
 SHELL_CONFIG_FILE=""
 
@@ -27,10 +18,19 @@ else
     [ ! -f "$SHELL_CONFIG_FILE" ] && SHELL_CONFIG_FILE="$HOME/.bashrc"
 fi
 
-# Update shell configuration file
-echo "Updating shell configuration file: $SHELL_CONFIG_FILE"
-echo "export FASTPROXY_HOME=\"\$HOME/.fastproxy\"" >> "$SHELL_CONFIG_FILE"
-echo "export PATH=\"\$PATH:\$FASTPROXY_HOME/bin\"" >> "$SHELL_CONFIG_FILE"
+# Check if FASTPROXY_HOME variable exists, if not, set it to $HOME/.fastproxy
+if [ -z "${FASTPROXY_HOME}" ]; then
+  export FASTPROXY_HOME="$HOME/.fastproxy"
+  echo "Setting FASTPROXY_HOME to $FASTPROXY_HOME"
+  
+  # Update shell configuration file
+  echo "Updating shell configuration file: $SHELL_CONFIG_FILE"
+  echo "export FASTPROXY_HOME=\"\$HOME/.fastproxy\"" >> "$SHELL_CONFIG_FILE"
+  echo "export PATH=\"\$PATH:\$FASTPROXY_HOME/bin\"" >> "$SHELL_CONFIG_FILE"
+fi
+
+# Create necessary directory
+mkdir -p "${FASTPROXY_HOME}/bin"
 
 # Determine system architecture
 ARCH=""
