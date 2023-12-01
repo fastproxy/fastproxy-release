@@ -69,4 +69,4 @@ rm -f "${FASTPROXY_HOME}/bin/${FILE}"
 
 echo "fastproxy has been installed to ${FASTPROXY_HOME}/bin"
 
-echo "Please use the 'source' command to apply the changes immediately: \033[1;32msource ${SHELL_CONFIG_FILE}\033[0m"
+echo "Please use the 'source' command to apply the changes immediately: source ${SHELL_CONFIG_FILE}"
