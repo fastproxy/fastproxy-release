@@ -45,7 +45,7 @@ REPO="fastproxy/fastproxy-release"
 FILE="fastproxy-darwin-${ARCH}"
 
 # Fetch the download URL for the latest release from GitHub
-DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/latest \
+DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/ \
 | grep "browser_download_url.*${FILE}" \
 | cut -d '"' -f 4)
 
