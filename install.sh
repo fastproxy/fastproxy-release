@@ -45,7 +45,7 @@ REPO="fastproxy/fastproxy-release"
 FILE="fastproxy-darwin-${ARCH}"
 
 # Fetch the download URL for the latest release from GitHub
-DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/ \
+DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases \
 | grep "browser_download_url.*${FILE}" \
 | cut -d '"' -f 4)
 
@@ -68,3 +68,5 @@ rm -f "${FASTPROXY_HOME}/${FILE}.tar.gz"
 rm -f "${FASTPROXY_HOME}/bin/${FILE}"
 
 echo "fastproxy has been installed to ${FASTPROXY_HOME}/bin"
+
+echo "Please use the 'source' command to apply the changes immediately: \033[1;32msource ${SHELL_CONFIG_FILE}\033[0m"
