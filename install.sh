@@ -67,5 +67,4 @@ mv "${FASTPROXY_HOME}/bin/${FILE}" "${FASTPROXY_HOME}/bin/fp"
 rm -f "${FASTPROXY_HOME}/${FILE}.tar.gz"
 rm -f "${FASTPROXY_HOME}/bin/${FILE}"
 
-echo "fastproxy has been installed to ${FASTPROXY_HOME}/bin
-
+echo "fastproxy has been installed to ${FASTPROXY_HOME}/bin"
