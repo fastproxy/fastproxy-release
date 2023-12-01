@@ -51,7 +51,7 @@ DOWNLOAD_URL=$(curl -s https://api.github.com/repos/${REPO}/releases/ \
 
 # Check if the download URL is found
 if [ -z "${DOWNLOAD_URL}" ]; then
-  echo "${DOWNLOAD_URL}"
+  echo "https://api.github.com/repos/${REPO}/releases/"
   echo "Download URL not found for the releases."
   exit 1
 fi
