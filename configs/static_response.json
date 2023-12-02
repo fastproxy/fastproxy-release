@@ -1,0 +1,60 @@
+{
+  "servers": {
+    "server1": {
+      "enabled": true,
+      "listen": [
+        ":6789"
+      ],
+      "rules": [
+        {
+          "enabled": true,
+          "terminal": true,
+          "routes": [
+            {
+              "terminal": true,
+              "match": [
+                {
+                  "path": [
+                    "*"
+                  ],
+                  "header_regexp": {
+                    "User-Agent": {
+                      "pattern": "Mobile|iPod|iPhone|Android"
+                    }
+                  }
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "static_response",
+                  "body": "mobile"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "enabled": true,
+          "terminal": true,
+          "routes": [
+            {
+              "match": [
+                {
+                  "path": [
+                    "*"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "static_response",
+                  "body": "pc"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
