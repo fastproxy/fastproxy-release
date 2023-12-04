@@ -1,0 +1,36 @@
+{
+  "servers": {
+    "reverse_proxy_server": {
+      "enabled": true,
+      "listen": [
+        ":6789"
+      ],
+      "rules": [
+        {
+          "enabled": true,
+          "terminal": true,
+          "routes": [
+            {
+              "terminal": true,
+              "match": [
+                {
+                  "path": [
+                    "*"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "reverse_proxy",
+                  "rewrite": {
+                    "scheme": "https"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

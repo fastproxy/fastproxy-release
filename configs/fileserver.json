@@ -1,0 +1,37 @@
+{
+  "servers": {
+    "server1": {
+      "enabled": true,
+      "listen": [
+        ":6789"
+      ],
+      "rules": [
+        {
+          "enabled": true,
+          "terminal": true,
+          "routes": [
+            {
+              "terminal": true,
+              "match": [
+                {
+                  "host": [
+                    "file.fastproxy.io"
+                  ],
+                  "path": [
+                    "*"
+                  ]
+                }
+              ],
+              "handle": [
+                {
+                  "handler": "fileserver",
+                  "dir": ".fastproxy"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
