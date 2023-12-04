@@ -2,21 +2,16 @@
   "servers": {
     "server1": {
       "enabled": true,
-      "listen": [
-        ":6789"
-      ],
+      "listen": [":6789"],
       "rules": [
         {
           "enabled": true,
-          "terminal": true,
           "routes": [
             {
               "terminal": true,
               "match": [
                 {
-                  "path": [
-                    "*"
-                  ],
+                  "path": ["*"],
                   "header_regexp": {
                     "User-Agent": {
                       "pattern": "Mobile|iPod|iPhone|Android"
@@ -30,19 +25,12 @@
                   "body": "mobile"
                 }
               ]
-            }
-          ]
-        },
-        {
-          "enabled": true,
-          "terminal": true,
-          "routes": [
+            },
+
             {
               "match": [
                 {
-                  "path": [
-                    "*"
-                  ]
+                  "path": ["*"]
                 }
               ],
               "handle": [
